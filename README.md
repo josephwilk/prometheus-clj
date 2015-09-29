@@ -25,7 +25,7 @@ A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open
 
 Some idle thoughts about tidying the interface using watchers on atoms. None of this exists yet.
 
-```
+```clojure
 (require '[promethesus.core :as prom])
 (def errors (atom 0))
 (prom/register-counter errors)
