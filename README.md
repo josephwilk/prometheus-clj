@@ -14,9 +14,13 @@ A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open
                             [] 
                             "text description")})
 
+;;Super useful to include this in all metrics.
+;;Effectively the version from your project.clj file
+(def project-version "v0.0.1")
+
 (defn inc-counter
   ([key]       (inc-counter key {}))
-  ([key pairs] (apply (count/incrementer-fn counters telemetry/version) [key pairs])))
+  ([key pairs] (apply (count/incrementer-fn counters project-version) [key pairs])))
   
 (inc-counter :some-count))  
 ```
