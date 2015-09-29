@@ -12,7 +12,13 @@ A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open
                             :application-name 
                             :some-count 
                             [] 
-                            "text description")})
+                            "text description")
+                :some-count-with-labels (count/mk-counter 
+                                        :application-name 
+                                        :some-count-with-labels 
+                                        [:browser] 
+                                        "text description")
+                })
 
 ;;Super useful to include this in all metrics.
 ;;Effectively the version from your project.clj file
@@ -22,7 +28,9 @@ A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open
   ([key]       (inc-counter key {}))
   ([key pairs] (apply (count/incrementer-fn counters project-version) [key pairs])))
   
-(inc-counter :some-count))  
+(inc-counter :some-count))
+(inc-counter :some-count-with-labels {:browser "Chrome"})
+(inc-counter :some-count-with-labels {:browser "Firefox"})
 ```
 
 ## Future
