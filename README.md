@@ -1,6 +1,6 @@
 # Prometheus
 
-A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open-source service monitoring system and time series database.
+A very rough Clojure wrapper around [Prometheus](http://prometheus.io/), an open-source service monitoring system and time series database. Unlike https://github.com/soundcloud/prometheus-clj it has no coupling to Ring or compojure.
 
 ## Usage
 
